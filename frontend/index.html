@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- Author: Mourad.Soltani -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vendor Master Data Cleanup — Mourad.Soltani</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Vendor Master Data Cleanup</h1>
+    <p class="author">Mourad.Soltani · v1.0.0</p>
+  </header>
+  <main>
+    <section>
+      <h2>Classify two vendors</h2>
+      <label for="vendor-a">Vendor A (JSON object)</label>
+      <textarea id="vendor-a" rows="6">{ "name": "Acme Corp", "address": "1 Main St", "tax_id": "12-3456789" }</textarea>
+
+      <label for="vendor-b">Vendor B (JSON object)</label>
+      <textarea id="vendor-b" rows="6">{ "name": "Acme Corporation", "address": "1 Main Street", "tax_id": "123456789" }</textarea>
+
+      <button id="classify-btn" type="button">Classify</button>
+      <pre id="classify-out" aria-live="polite"></pre>
+    </section>
+
+    <section>
+      <h2>Batch deduplicate</h2>
+      <label for="vendor-list">Vendors (JSON array)</label>
+      <textarea id="vendor-list" rows="10">[
+  { "id": "V1", "name": "Acme Corp" },
+  { "id": "V2", "name": "Acme Corporation" },
+  { "id": "V3", "name": "Globex" }
+]</textarea>
+
+      <button id="dedupe-btn" type="button">Deduplicate</button>
+      <pre id="dedupe-out" aria-live="polite"></pre>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
